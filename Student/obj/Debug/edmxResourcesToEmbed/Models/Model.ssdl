@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TritonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Benchmark">
+    <Key>
+      <PropertyRef Name="BenchmarkID" />
+    </Key>
+    <Property Name="BenchmarkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="benchmarkRange" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Co_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="ParentID" />
+    </Key>
+    <Property Name="ParentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pa_name" Type="varchar" MaxLength="50" />
+    <Property Name="Pa_sex" Type="char" MaxLength="1" />
+    <Property Name="StudentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="St_name" Type="varchar" MaxLength="50" />
+    <Property Name="St_address" Type="varchar" MaxLength="100" />
+    <Property Name="St_birthday" Type="date" />
+    <Property Name="St_la" Type="varchar" MaxLength="50" />
+    <Property Name="St_long" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Triton.dbo.StudenParent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StudenParent">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="St_name" Type="varchar" MaxLength="50" />
+    <Property Name="St_address" Type="varchar" MaxLength="100" />
+    <Property Name="St_birthday" Type="date" />
+    <Property Name="Pa_name" Type="varchar" MaxLength="50" />
+    <Property Name="Pa_sex" Type="char" MaxLength="1" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Benchmark_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+    <End Role="Benchmark" Type="Self.Benchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Benchmark">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Benchmark_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Benchmark" Type="Self.Benchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Benchmark">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TritonModelStoreContainer">
+    <EntitySet Name="Benchmark" EntityType="Self.Benchmark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudenParent" EntityType="Self.StudenParent" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudenParent].[StudentID] AS [StudentID], 
+    [StudenParent].[St_name] AS [St_name], 
+    [StudenParent].[St_address] AS [St_address], 
+    [StudenParent].[St_birthday] AS [St_birthday], 
+    [StudenParent].[Pa_name] AS [Pa_name], 
+    [StudenParent].[Pa_sex] AS [Pa_sex], 
+    [StudenParent].[ParentID] AS [ParentID]
+    FROM [dbo].[StudenParent] AS [StudenParent]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Benchmark_Course" Association="Self.FK_Benchmark_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Benchmark" EntitySet="Benchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Benchmark_Student" Association="Self.FK_Benchmark_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Benchmark" EntitySet="Benchmark" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Student.Models.Benchmark>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Benchmark1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Benchmark1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BenchmarkID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BenchmarkID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BenchmarkID })
+        </td>
+    </tr>
+}
+
+</table>

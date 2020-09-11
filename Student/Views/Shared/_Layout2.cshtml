@@ -1,0 +1,186 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html class="wide smoothscroll wow-animation desktop landscape rd-navbar-fullwidth-linked" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout2</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+        <style id="stndz-style"></style>
+        <!-- Site Title-->
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <meta name="description" content="Express-Connect online payment options">
+        <meta name="keywords" content="online payments">
+        <!-- Stylesheets-->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CMerriweather+Sans:400,400i,700,700i">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style type="text/css">
+            body, td, th {
+                font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 16px;
+                color: #5A6168;
+            }
+
+            a {
+                font-family: Montserrat, Helvetica, Arial, sans-serif;
+                color: #C61100;
+            }
+
+                a:hover {
+                    color: #fff;
+                }
+
+                a:link {
+                    color: #FF6433;
+                }
+               
+                 .rd-navbar-static .fixed-logo,
+                 .rd-navbar-fullwidth .fixed-logo {
+  display: none; }
+        </style>
+
+        <!--[if lt IE 10]>
+        <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+        <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+
+
+
+
+</head>
+<body>
+    <div class="page text-center text-sm-left> 
+        <header class="page-header">
+            <div class="rd-navbar-wrap text-left" style="height: 228px;">
+                <nav class="rd-navbar rd-navbar-default rd-navbar-original rd-navbar-fullwidth" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="140px" data-lg-stick-up-offset="140px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+                    <div class="rd-navbar-collapse-toggle toggle-original" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                    <div class="rd-navbar-inner">
+                        <div class="rd-navbar-aside-right">
+                            <div class="rd-navbar-nav-wrap toggle-original-elements">
+                                <!-- RD Navbar Nav-->
+                                <ul class="rd-navbar-nav">
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="consumers.html">Consumers</a></li>
+                                    <li><a href="merchants.html">Merchants</a></li>
+                                    <li><a href="demo.html">Demo</a></li>
+                                    <li><a href="#">FAQS</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="button button-white" href="sign-up.html">Log In / Sign Up</a>
+                    </div>
+                    <div class="rd-navbar-top-panel">
+                        <div class="rd-navbar-top-panel-inner">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle toggle-original" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand">
+                                <a class="brand-name" href="index.html">
+                                    <img class="logo-brand" src="images/express-logo-payout.jpg" alt="" width="245" height="135">
+                                    <img class="fixed-logo" src="images/express-logo-payout.jpg" alt="" width="253" height="56"></a></div>
+                            </div>
+                            <address class="contact-info rd-navbar-collapse align-between toggle-original-elements">
+                                <ul>
+                                    <li>
+                                        <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
+                                            <div class="unit__left"><span class=""></span></div>
+                                            <div class="unit__body">
+                                                <div class="p"><a class="text-bold text-gray" href="#"><span class="text-gray-light"></span></a></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
+                                            <div class="unit__left"><span class=""></span></div>
+                                            <div class="unit__body">
+                                                <div class="p">
+                                                    <p class="text-bold"><span class=""></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="unit unit-middle unit-horizontal unit-spacing-xs unit-xs-top">
+                                            <div class="unit__left"><span class="icon fa-phone text-gray-light"></span></div>
+                                            <div class="unit__body">
+                                                <div class="p"><a class="tel" href="tel:">1 555-555-5555</a></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__cent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>*@
+    <script src="~/Scripts/index.js"></script>
+    <script src="~/Scripts/core.min.js"></script>
+    <a href="#" id="ui-to-top" class="ui-to-top fa fa-angle-up"></a>
+</body>
+</html>

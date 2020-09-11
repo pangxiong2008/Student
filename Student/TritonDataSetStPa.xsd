@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TritonDataSetStPa" targetNamespace="http://tempuri.org/TritonDataSetStPa.xsd" xmlns:mstns="http://tempuri.org/TritonDataSetStPa.xsd" xmlns="http://tempuri.org/TritonDataSetStPa.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="TritonConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TritonConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.TritonConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudenParentTableAdapter" GeneratorDataComponentClassName="StudenParentTableAdapter" Name="StudenParent" UserDataComponentName="StudenParentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TritonConnectionString (Web.config)" DbObjectName="Triton.dbo.StudenParent" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT StudentID, St_name, St_address, St_birthday, Pa_name, Pa_sex, ParentID FROM dbo.StudenParent</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="StudentID" DataSetColumn="StudentID" />
+              <Mapping SourceColumn="St_name" DataSetColumn="St_name" />
+              <Mapping SourceColumn="St_address" DataSetColumn="St_address" />
+              <Mapping SourceColumn="St_birthday" DataSetColumn="St_birthday" />
+              <Mapping SourceColumn="Pa_name" DataSetColumn="Pa_name" />
+              <Mapping SourceColumn="Pa_sex" DataSetColumn="Pa_sex" />
+              <Mapping SourceColumn="ParentID" DataSetColumn="ParentID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TritonDataSetStPa" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TritonDataSetStPa" msprop:Generator_UserDSName="TritonDataSetStPa">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StudenParent" msprop:Generator_TableClassName="StudenParentDataTable" msprop:Generator_TableVarName="tableStudenParent" msprop:Generator_TablePropName="StudenParent" msprop:Generator_RowDeletingName="StudenParentRowDeleting" msprop:Generator_RowChangingName="StudenParentRowChanging" msprop:Generator_RowEvHandlerName="StudenParentRowChangeEventHandler" msprop:Generator_RowDeletedName="StudenParentRowDeleted" msprop:Generator_UserTableName="StudenParent" msprop:Generator_RowChangedName="StudenParentRowChanged" msprop:Generator_RowEvArgName="StudenParentRowChangeEvent" msprop:Generator_RowClassName="StudenParentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentID" msprop:Generator_ColumnVarNameInTable="columnStudentID" msprop:Generator_ColumnPropNameInRow="StudentID" msprop:Generator_ColumnPropNameInTable="StudentIDColumn" msprop:Generator_UserColumnName="StudentID" type="xs:int" />
+              <xs:element name="St_name" msprop:Generator_ColumnVarNameInTable="columnSt_name" msprop:Generator_ColumnPropNameInRow="St_name" msprop:Generator_ColumnPropNameInTable="St_nameColumn" msprop:Generator_UserColumnName="St_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="St_address" msprop:Generator_ColumnVarNameInTable="columnSt_address" msprop:Generator_ColumnPropNameInRow="St_address" msprop:Generator_ColumnPropNameInTable="St_addressColumn" msprop:Generator_UserColumnName="St_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="St_birthday" msprop:Generator_ColumnVarNameInTable="columnSt_birthday" msprop:Generator_ColumnPropNameInRow="St_birthday" msprop:Generator_ColumnPropNameInTable="St_birthdayColumn" msprop:Generator_UserColumnName="St_birthday" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Pa_name" msprop:Generator_ColumnVarNameInTable="columnPa_name" msprop:Generator_ColumnPropNameInRow="Pa_name" msprop:Generator_ColumnPropNameInTable="Pa_nameColumn" msprop:Generator_UserColumnName="Pa_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pa_sex" msprop:Generator_ColumnVarNameInTable="columnPa_sex" msprop:Generator_ColumnPropNameInRow="Pa_sex" msprop:Generator_ColumnPropNameInTable="Pa_sexColumn" msprop:Generator_UserColumnName="Pa_sex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ParentID" msprop:Generator_ColumnVarNameInTable="columnParentID" msprop:Generator_ColumnPropNameInRow="ParentID" msprop:Generator_ColumnPropNameInTable="ParentIDColumn" msprop:Generator_UserColumnName="ParentID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:StudenParent" />
+      <xs:field xpath="mstns:StudentID" />
+      <xs:field xpath="mstns:ParentID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

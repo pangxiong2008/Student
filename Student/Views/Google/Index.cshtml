@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Google Map";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<title>@ViewBag.Title</title>
+
+<fieldset>
+    <legend style="font-family: Arial Black; color: blue; font-size: large;">Check Bhubaneswar City</legend>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=put_your_api_key_here&callback=myMap"></script>
+
+    <div id="googleMap" style="height:400px;width:100%;"></div>
+    <script>
+
+        //function getLocation() {
+        //    if (navigator.geolocation) {
+        //        navigator.geolocation.getCurrentPosition(myMap);
+        //    } else {
+        //        x.innerHTML = "Geolocation is not supported by this browser.";
+        //    }
+        //}
+        function myMap() {
+            var myCenter = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var mapProp = { center: myCenter, zoom: 12, scrollwheel: false, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+        }
+
+        function codeAddress() {
+            var address = document.getElementById("address").value;
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                   
+                    map.setCenter(results[0].geometry.location);
+                    this.marker = new google.maps.Marker({
+                        title: address,
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                   
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+    </script>
+   </fieldset>  
+

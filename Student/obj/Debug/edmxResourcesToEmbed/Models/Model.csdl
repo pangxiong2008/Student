@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TritonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="ParentID" />
+    </Key>
+    <Property Name="ParentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pa_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pa_sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="StudentID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="St_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="St_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="St_birthday" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Benchmarks" Relationship="Self.FK_Benchmark_Student" FromRole="Student" ToRole="Benchmark" />
+    <Property Name="St_la" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="St_long" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Benchmark">
+    <Key>
+      <PropertyRef Name="BenchmarkID" />
+    </Key>
+    <Property Name="BenchmarkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="CourseID" Type="Int32" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Benchmark_Student" FromRole="Benchmark" ToRole="Student" />
+    <NavigationProperty Name="Course" Relationship="TritonModel.FK_Benchmark_Course" FromRole="Benchmark" ToRole="Course" />
+    <Property Name="benchmarkRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Benchmark_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Benchmark" Type="Self.Benchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Benchmark">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TritonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Parents" EntityType="Self.Parent" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Benchmarks" EntityType="Self.Benchmark" />
+    <AssociationSet Name="FK_Benchmark_Student" Association="Self.FK_Benchmark_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Benchmark" EntitySet="Benchmarks" />
+    </AssociationSet>
+    <EntitySet Name="Courses" EntityType="TritonModel.Course" />
+    <AssociationSet Name="FK_Benchmark_Course" Association="TritonModel.FK_Benchmark_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Benchmark" EntitySet="Benchmarks" />
+    </AssociationSet>
+    <EntitySet Name="StudenParents" EntityType="TritonModel.StudenParent" />
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Co_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Benchmarks" Relationship="TritonModel.FK_Benchmark_Course" FromRole="Course" ToRole="Benchmark" />
+  </EntityType>
+  <Association Name="FK_Benchmark_Course">
+    <End Type="TritonModel.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="TritonModel.Benchmark" Role="Benchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Benchmark">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StudenParent">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="St_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="St_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="St_birthday" Type="DateTime" Precision="0" />
+    <Property Name="Pa_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pa_sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ParentID" Type="Int32" />
+  </EntityType>
+</Schema>
